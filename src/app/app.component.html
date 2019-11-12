@@ -1,0 +1,20 @@
+<div [ngStyle]="{ 'width':'250px','margin':'0 auto'}">
+<div >
+  <input type="button" value="Track Script" (click)="getContentFromAnotherPortal()" style="float: left; width: 50%"/> &nbsp;
+  <img #progressBar src="./assets/progress.gif" width="50px"  style="float: left; display: none"/>
+</div><br>
+<div >
+  <table [ngStyle]="{ 'padding':0, 'border': 'solid 1px ', 'border-collapse':'collapse' }">
+    <tr>
+      <th [ngStyle]="{'border':'solid 1px', 'text-align':'left'}"> Script Name</th>
+      <th [ngStyle]="{'border':'solid 1px','text-align':'left'}">COI</th> 
+    </tr>
+    <tr *ngFor="let item of selectedStock$ |async; let i = index" [ngStyle]="{'background-color': i%2===0 ? 'skyblue' : 'white' }" >
+       <td [ngStyle]="{'border':'solid 1px', 'padding': '0 5px'}"><span>{{item.name}}</span></td>
+       <td [ngStyle]="{'border':'solid 1px', 'padding':'0 5px'}"><span>{{item.coi}}</span></td>
+    </tr>
+  </table>
+</div>
+</div>
+
+<router-outlet></router-outlet>
